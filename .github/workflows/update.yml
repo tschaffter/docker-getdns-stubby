@@ -1,0 +1,32 @@
+name: Update project release
+
+on:
+  schedule:
+    - cron: '0 10 * * 0'  # every Sunday at 10am
+
+jobs:
+  check-and-update:
+    name: Check and update getdns release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get latest Dnsmasq release version
+        run: |
+          git clone https://github.com/getdnsapi/getdns.git
+          cd getdns
+          new_version=$(git describe --abbrev=0 --exclude '*rc*' --exclude '*win*')
+          # Trim leading 'v' in semantic version
+          new_version=${new_version:1}
+          echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
+      - name: Update Docker image version
+        run: |
+          current_version=$(cat VERSION)
+          for f in VERSION Dockerfile docker-compose.yml; do
+            sed -i "s/${current_version}/${{env.NEW_VERSION}}/g" "$f"
+          done
+      - name: Send pull request to update to new version
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update to ${{ env.NEW_VERSION }}
+          title: Update to ${{ env.NEW_VERSION }}
+          delete-branch: true
