@@ -9,16 +9,17 @@ Docker image for Stubby
 
 ## Overview
 
-## Versioning
-
-It is recommended to use a tag other than `latest` if you are using this image
-in a production setting. The tags of this image match the version of the
-repository [getdnsapi/getdns] that includes `stubby`.
-
 ## Acknowledgments
 
 This Dockerfile is adapted from the one available in the repository
 [yegle/stubby-docker].
+
+## Versioning
+
+It is recommended to use a tag other than `latest` if you are using this image
+in a production setting. The tags of this image match the versions of the
+repository [getdnsapi/getdns] (that includes `stubby`) and not the version of
+`stubby`.
 
 ## License
 
