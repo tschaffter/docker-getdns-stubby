@@ -3,7 +3,6 @@ name: Update project release
 on:
   schedule:
     - cron: '0 10 * * 0'  # every Sunday at 10am
-  pull_request:
 
 jobs:
   check-and-update:
