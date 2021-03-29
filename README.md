@@ -36,7 +36,8 @@ The table below describes the image tags available.
 | `edge`  | Yes   | Lastest commit made to the default branch  |
 | `<major>` | Yes   | Latest stable release for the getdns major version `<major>` |
 | `<major>.<minor>` | Yes | Latest stable release for the getdns version `<major>.<minor>` |
-| `<major>.<minor>-<sha>` | No | Same as above but with the reference to the git commit |
+| `<major>.<minor>.<patch>` | Yes | Latest stable release for the getdns version `<major>.<minor>.<patch>` |
+| `<major>.<minor>.<patch>-<sha>` | No | Same as above but with the reference to the git commit |
 
 You should avoid using a moving tag like `latest` when deploying containers in
 production, because this makes it hard to track which version of the image is
