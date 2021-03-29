@@ -9,6 +9,37 @@ Docker image for Stubby
 
 ## Overview
 
+## Usage
+
+### Deploying using Docker
+
+Start the Stubby server. Add the option `-d` or `--detach` to run in the
+background.
+
+    docker-compose up --build
+
+To stop the server, enter `Ctrl+C` followed by `docker-compose down`. If running
+in detached mode, you will only need to enter `docker-compose down`.
+
+## Resolving domain names
+
+[Dig] is a command line utility that performs DNS lookup by querying name
+servers and displaying the result to you. After starting Stubby, run the
+command below to resolve the IP address of github.com.
+
+```console
+github.com.             17      IN      A       140.82.121.4
+;; Query time: 156 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Mon Mar 29 07:55:58 PDT 2021
+;; MSG SIZE  rcvd: 413
+```
+
+The response includes the following information:
+
+- The IP address of github.com is 140.82.121.4.
+- The response is returned by the server is 127.0.0.1#53 (Stubby).
+
 ## Acknowledgments
 
 The Dockerfile is adapted from the one available in the repository
