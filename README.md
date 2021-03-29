@@ -52,5 +52,5 @@ then it makes sense to use a moving tag.
 <!-- Links -->
 
 [yegle/stubby-docker]: https://github.com/yegle/stubby-docker
-[Apache License 2.0]: https://github.com/tschaffter/stubby/blob/main/LICENSE
+[Apache License 2.0]: https://github.com/tschaffter/getdns-stubby/blob/main/LICENSE
 [getdnsapi/getdns]: https://github.com/getdnsapi/getdns

@@ -14,7 +14,7 @@ jobs:
         run: |
           git clone https://github.com/getdnsapi/getdns.git
           cd getdns
-          new_version=$(git describe --abbrev=0 --exclude '*rc*' --exclude '*win*')
+          new_version=$(git describe --abbrev=0 --exclude '*-*' --exclude '*_*')
           # Trim leading 'v' in semantic version
           new_version=${new_version:1}
           echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
