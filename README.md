@@ -24,10 +24,9 @@ always point to the same git commit identifier once it has been created.
 
 ### Docker tags
 
-The artifact published by this repository is a Docker image. The version of the
-image is aligned with the version of getdns, not the release versions of this
-GitHub repository. The motivation behind this strategy is that the tag directly
-informs the user on the version of getdns that is being deployed.
+The artifact published by this repository is a Docker image. The versions of the
+image are aligned with the versions of getdns, not the versions of Stubby or the
+GitHub tags of this repository.
 
 The table below describes the image tags available.
 
