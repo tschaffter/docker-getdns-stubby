@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get latest Dnsmasq release version
+      - name: Get latest getdns release version
         run: |
           git clone https://github.com/getdnsapi/getdns.git
           cd getdns
@@ -18,15 +18,19 @@ jobs:
           # Trim leading 'v' in semantic version
           new_version=${new_version:1}
           echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
+      - name: Update stubby config example
+        run: |
+          cp getdns/stubby/stubby.yml.example ../stubby.yml.example
+          rm -fr getdns
       - name: Update Docker image version
         run: |
-          current_version=$(cat VERSION)
-          for f in VERSION Dockerfile docker-compose.yml; do
+          current_version=$(cat GETDNS_VERSION)
+          for f in GETDNS_VERSION Dockerfile docker-compose.yml; do
             sed -i "s/${current_version}/${{env.NEW_VERSION}}/g" "$f"
           done
       - name: Send pull request to update to new version
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: Update to ${{ env.NEW_VERSION }}
-          title: Update to ${{ env.NEW_VERSION }}
+          commit-message: Update to getdns ${{ env.NEW_VERSION }}
+          title: Update to getdns ${{ env.NEW_VERSION }}
           delete-branch: true

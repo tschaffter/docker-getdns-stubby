@@ -11,15 +11,39 @@ Docker image for Stubby
 
 ## Acknowledgments
 
-This Dockerfile is adapted from the one available in the repository
+The Dockerfile is adapted from the one available in the repository
 [yegle/stubby-docker].
 
 ## Versioning
 
-It is recommended to use a tag other than `latest` if you are using this image
-in a production setting. The tags of this image match the versions of the
-repository [getdnsapi/getdns] (that includes `stubby`) and not the version of
-`stubby`.
+### GitHub tags
+
+This repository uses [semantic versioning] to track the releases of this
+project. This repository uses "non-moving" GitHub tags, that is, a tag will
+always point to the same git commit identifier once it has been created.
+
+### Docker tags
+
+The artifact published by this repository is a Docker image. The version of the
+image is aligned with the version of getdns, not the release versions of this
+GitHub repository. The motivation behind this strategy is that the tag directly
+informs the user on the version of getdns that is being deployed.
+
+The table below describes the image tags available.
+
+| Tag name   | Moving   | Description  |
+|---|---|---|
+| `latest`  | Yes   | Latest stable release   |
+| `edge`  | Yes   | Lastest commit made to the default branch  |
+| `<major>` | Yes   | Latest stable release for the getdns major version `<major>` |
+| `<major>.<minor>` | Yes | Latest stable release for the getdns version `<major>.<minor>` |
+| `<major>.<minor>-<sha>` | No | Same as above but with the reference to the git commit |
+
+You should avoid using a moving tag like `latest` when deploying containers in
+production, because this makes it hard to track which version of the image is
+running and hard to roll back. If you prefer to use the latest version available
+without manually updating your configuration and reproducibility is secondary,
+then it makes sense to use a moving tag.
 
 ## License
 
