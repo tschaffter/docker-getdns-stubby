@@ -36,7 +36,19 @@ Stubby provides DNS Privacy by:
 ### Configuration
 
 The default configuration file of Stubby is given in the file
-[stubby.yml.example](stubby.yml.example).
+[stubby.yml.example](stubby.yml.example). By default, Stubby listen to the
+loopback interface of the host it is running on, which can not be reached when
+running Stubby in a container. When starting Stubby using Docker as described
+below, the configuration file [stubby.yml](stubby.yml) is used where the value
+of the option `listen_addresses` has been updated to enable Stubby to be reached
+from your host or from another container as done in [tschaffter/dnsmasq-stubby].
+
+```yaml
+# Listen to all IPv4 and IPv6 addresses (within the container).
+listen_addresses:
+  - 0.0.0.0
+  - 0:0:0:0:0:0:0:0
+```
 
 ### Deploying using Docker
 
@@ -55,6 +67,7 @@ servers and displaying the result to you. After starting Stubby, run the
 command below to resolve the IP address of github.com.
 
 ```console
+dig @localhost +noall +answer +stats github.com
 github.com.             17      IN      A       140.82.121.4
 ;; Query time: 156 msec
 ;; SERVER: 127.0.0.1#53(127.0.0.1)
@@ -119,3 +132,4 @@ The Dockerfile is adapted from the one available in the repository
 [intuitive description of how DNSSEC works]: https://www.cloudflare.com/dns/dnssec/how-dnssec-works/
 [Dig]: https://en.wikipedia.org/wiki/Dig_(command)
 [semantic versioning]: https://semver.org/
+[tschaffter/dnsmasq-stubby]: https://github.com/tschaffter/dnsmasq-stubby
