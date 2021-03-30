@@ -9,7 +9,34 @@ Docker image for Stubby
 
 ## Overview
 
+[Stubby] is an application that acts as a local DNS Privacy stub resolver (using
+DNS-over-TLS). Stubby encrypts DNS queries sent from a client machine (desktop
+or laptop) to a DNS Privacy resolver increasing end user privacy.
+
+Stubby is developed by the getdns team. This project builds Stubby from its
+source using the instruction available in the GitHub repository
+[getdnsapi/stubby].
+
+## Features
+
+Stubby provides DNS Privacy by:
+
+- Using a default configuration which provides Strict Privacy and uses a subset
+  of the available [DNS Privacy servers] that support DNS-over-TLS. These
+  servers can be replaced by the servers of a paid alternative, for example
+  those provided by [NextDNS].
+- Distributing queries across all the servers specified so that the full picture
+  of your queries is not captured by a single DNS provider
+  (`round_robin_upstreams: 1`).
+- Enabling Domain Name System Security Extension (DNSSEC) validation. Cloudflare
+  provides an [intuitive description of how DNSSEC works].
+
 ## Usage
+
+### Configuration
+
+The default configuration file of Stubby is given in the file
+[stubby.yml.example](stubby.yml.example).
 
 ### Deploying using Docker
 
@@ -37,13 +64,8 @@ github.com.             17      IN      A       140.82.121.4
 
 The response includes the following information:
 
-- The IP address of github.com is 140.82.121.4.
+- The IP address of github.com is 140.82.121.4 (may change over time).
 - The response is returned by the server is 127.0.0.1#53 (Stubby).
-
-## Acknowledgments
-
-The Dockerfile is adapted from the one available in the repository
-[yegle/stubby-docker].
 
 ## Versioning
 
@@ -76,12 +98,24 @@ running and hard to roll back. If you prefer to use the latest version available
 without manually updating your configuration and reproducibility is secondary,
 then it makes sense to use a moving tag.
 
+## Acknowledgments
+
+The Dockerfile is adapted from the one available in the repository
+[yegle/stubby-docker].
+
 ## License
 
 [Apache License 2.0]
 
 <!-- Links -->
 
+[Stubby]: https://github.com/getdnsapi/stubby
+[getdnsapi/stubby]: https://github.com/getdnsapi/stubby
 [yegle/stubby-docker]: https://github.com/yegle/stubby-docker
 [Apache License 2.0]: https://github.com/tschaffter/getdns-stubby/blob/main/LICENSE
 [getdnsapi/getdns]: https://github.com/getdnsapi/getdns
+[DNS Privacy servers]: https://dnsprivacy.org/wiki/x/E4AT
+[NextDNS]: https://nextdns.io/
+[intuitive description of how DNSSEC works]: https://www.cloudflare.com/dns/dnssec/how-dnssec-works/
+[Dig]: https://en.wikipedia.org/wiki/Dig_(command)
+[semantic versioning]: https://semver.org/
