@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Get latest getdns release version
         run: |
-          git clone https://github.com/getdnsapi/getdns.git
+          git clone --recurse-submodules https://github.com/getdnsapi/getdns.git
           cd getdns
           new_version=$(git describe --abbrev=0 --exclude '*-*' --exclude '*_*')
           # Trim leading 'v' in semantic version
