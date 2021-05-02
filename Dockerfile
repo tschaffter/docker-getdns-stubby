@@ -39,9 +39,8 @@ RUN gpg --import willem.nlnetlabs.nl \
     && git verify-tag v${GETDNS_VERSION} \
     && cmake -DUSE_LIBIDN2=OFF -DENABLE_STUB_ONLY=ON -DBUILD_STUBBY=ON . \
     && make \
-    && make install
-
-RUN strip -s /usr/local/bin/getdns_server_mon \
+    && make install \
+    && strip -s /usr/local/bin/getdns_server_mon \
     && strip -s /usr/local/bin/stubby \
     && strip -s /usr/local/lib/libgetdns.so.10
 
