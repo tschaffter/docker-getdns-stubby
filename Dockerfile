@@ -53,6 +53,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         gosu \
         libssl-dev \
+        libyaml-dev \
     && rm -rf \
         /tmp/* \
         /var/tmp/* \
@@ -61,8 +62,8 @@ RUN apt-get update \
 COPY --from=stubby /usr/local/lib/libgetdns.so.10 /lib/x86_64-linux-gnu/
 COPY --from=stubby /usr/local/bin/stubby /bin/
 COPY --from=stubby /usr/local/bin/getdns_server_mon /bin/
-COPY --from=stubby /usr/lib/x86_64-linux-gnu/libyaml-0.so.2 /lib/x86_64-linux-gnu/
 COPY --from=stubby /tmp/getdns/stubby/stubby.yml.example /usr/local/etc/stubby/stubby.yml
+# COPY --from=stubby /usr/lib/x86_64-linux-gnu/libyaml-0.so.2 /lib/x86_64-linux-gnu/
 
 RUN adduser --system --no-create-home stubby
 
