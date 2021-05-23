@@ -45,8 +45,6 @@ RUN gpg --import willem.nlnetlabs.nl \
     && strip -s /usr/local/bin/stubby \
     && strip -s /usr/local/lib/libgetdns.so.10
 
-COPY --from=stubby /tmp/getdns/stubby/stubby.yml.example /usr/local/etc/stubby/stubby.yml
-
 RUN adduser --system --no-create-home stubby
 
 WORKDIR /
