@@ -51,8 +51,8 @@ SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 # hadolint ignore=DL3008
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+        ca-certificates \
         gosu \
-        libssl-dev \
         libyaml-dev \
     && rm -rf \
         /tmp/* \
