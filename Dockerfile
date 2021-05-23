@@ -1,4 +1,4 @@
-FROM debian:10.9-slim as stubby
+FROM debian:10.9-slim
 
 ARG GETDNS_VERSION="1.6.0"
 ENV GETDNS_VERSION=${GETDNS_VERSION}
@@ -16,6 +16,7 @@ RUN apt-get update \
         git \
         gpg \
         gpg-agent \
+        gosu \
         libev-dev \
         libevent-dev \
         libssl-dev \
@@ -43,27 +44,6 @@ RUN gpg --import willem.nlnetlabs.nl \
     && strip -s /usr/local/bin/getdns_server_mon \
     && strip -s /usr/local/bin/stubby \
     && strip -s /usr/local/lib/libgetdns.so.10
-
-FROM debian:10.9-slim
-
-SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
-
-# hadolint ignore=DL3008
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        ca-certificates \
-        gosu \
-        libyaml-dev \
-    && rm -rf \
-        /tmp/* \
-        /var/tmp/* \
-        /var/lib/apt/lists/*
-
-COPY --from=stubby /usr/local/lib/libgetdns.so.10 /lib/x86_64-linux-gnu/
-COPY --from=stubby /usr/local/bin/stubby /bin/
-COPY --from=stubby /usr/local/bin/getdns_server_mon /bin/
-COPY --from=stubby /tmp/getdns/stubby/stubby.yml.example /usr/local/etc/stubby/stubby.yml
-# COPY --from=stubby /usr/lib/x86_64-linux-gnu/libyaml-0.so.2 /lib/x86_64-linux-gnu/
 
 RUN adduser --system --no-create-home stubby
 
