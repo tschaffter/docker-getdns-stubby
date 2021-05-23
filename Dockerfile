@@ -48,8 +48,6 @@ FROM debian:10.9-slim
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-COPY --from=stubby /opt/openssl /opt/openssl
-
 # hadolint ignore=DL3008
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
