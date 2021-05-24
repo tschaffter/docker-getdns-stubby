@@ -56,7 +56,7 @@ RUN apt-get update \
         gosu \
         libyaml-0-2 \
     # Fix https://github.com/tschaffter/getdns-stubby/issues/7#issuecomment-846693585
-    && c_rehash \
+    && openssl rehash -v /etc/ssl/certs \
     && rm -rf \
         /tmp/* \
         /var/tmp/* \
