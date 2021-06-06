@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   stubby:
-    image: tschaffter/getdns-stubby:1.6.0
+    image: tschaffter/getdns-stubby:1.7.0
     build:
       context: .
       dockerfile: Dockerfile

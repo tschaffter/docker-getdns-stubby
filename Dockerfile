@@ -1,6 +1,6 @@
 FROM debian:10.9-slim as stubby
 
-ARG GETDNS_VERSION="1.6.0"
+ARG GETDNS_VERSION="1.7.0"
 ENV GETDNS_VERSION=${GETDNS_VERSION}
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
