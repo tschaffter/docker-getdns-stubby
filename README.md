@@ -12,9 +12,8 @@
 DNS-over-TLS). Stubby encrypts DNS queries sent from a client machine (desktop
 or laptop) to a DNS Privacy resolver increasing end user privacy.
 
-Stubby is developed by the getdns team. This project builds Stubby from its
-source using the instruction available in the GitHub repository
-[getdnsapi/stubby].
+This project builds Stubby from its source using the instruction available in
+the GitHub repository [getdnsapi/getdns].
 
 <img alt="getdns" src="https://raw.githubusercontent.com/tschaffter/docker-getdns-stubby/main/images/getdns.svg" height="100px">
 
