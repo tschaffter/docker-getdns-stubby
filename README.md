@@ -100,10 +100,10 @@ listen_addresses:
 Start the Stubby server. Add the option `-d` or `--detach` to run in the
 background.
 
-    docker-compose up --build
+    docker-compose up
 
-To stop the server, enter `Ctrl+C` followed by `docker-compose down`. If running
-in detached mode, you will only need to enter `docker-compose down`.
+To stop the server, enter `Ctrl+C` followed by `docker compose down`. If running
+in detached mode, you will only need to enter `docker compose down`.
 
 
 ## Resolving domain names
