@@ -15,9 +15,7 @@ Stubby is developed by the getdns team. This project builds Stubby from its
 source using the instruction available in the GitHub repository
 [getdnsapi/stubby].
 
-
-
-## Features
+<img alt="getdns" src="https://raw.githubusercontent.com/tschaffter/docker-getdns-stubby/main/images/getdns.svg" height="100px">
 
 Stubby provides DNS Privacy by:
 
@@ -31,17 +29,53 @@ Stubby provides DNS Privacy by:
 - Enabling Domain Name System Security Extension (DNSSEC) validation. Cloudflare
   provides an [intuitive description of how DNSSEC works].
 
+
+## Contents
+
+TBA
+
+
+## Specification
+
+- Project version: 1.1.4
+- Getdns version: 1.6.0
+- Docker image: [tschaffter/getdns-stubby]
+
+
+## Requirements
+
+- [Docker Engine] >=19.03.0
+
+
 ## Usage
+
+### Quickstart
+
+1. Start Stubby using Docker: `docker compose up -d`
+2. Resolve the IP address of `github.com` using [dig] and Stubby:
+
+    ```console
+    dig @localhost +noall +answer +stats github.com
+    github.com.             17      IN      A       140.82.121.4
+    ;; Query time: 156 msec
+    ;; SERVER: 127.0.0.1#53(127.0.0.1)
+    ;; WHEN: Mon Mar 29 07:55:58 PDT 2021
+    ;; MSG SIZE  rcvd: 413
+    ```
+
+3. Stop Stubby: `docker stop stubby`
 
 ### Configuration
 
-The default configuration file of Stubby is given in the file
-[stubby.yml.example](stubby.yml.example). By default, Stubby listen to the
-loopback interface of the host it is running on, which can not be reached when
-running Stubby in a container. When starting Stubby using Docker as described
-below, the configuration file [stubby.yml](stubby.yml) is used where the value
-of the option `listen_addresses` has been updated to enable Stubby to be reached
-from your host or from another container as done in [tschaffter/dnsmasq-stubby].
+The default configuration file of Stubby is
+[stubby.yml.example](stubby.yml.example).
+
+By default, Stubby listen to the loopback interface of the host it is running
+on, which can not be reached when running Stubby in a container. When starting
+Stubby using Docker as described below, the configuration file
+[stubby.yml](stubby.yml) is used where the value of the option
+`listen_addresses` has been updated to enable Stubby to be reached from your
+host or from another container as done in [tschaffter/dnsmasq-stubby].
 
 ```yaml
 # Listen to all IPv4 and IPv6 addresses (within the container).
@@ -59,6 +93,7 @@ background.
 
 To stop the server, enter `Ctrl+C` followed by `docker-compose down`. If running
 in detached mode, you will only need to enter `docker-compose down`.
+
 
 ## Resolving domain names
 
@@ -79,6 +114,7 @@ The response includes the following information:
 
 - The IP address of github.com is 140.82.121.4 (may change over time).
 - The response is returned by the server is 127.0.0.1#53 (Stubby).
+
 
 ## Versioning
 
@@ -133,3 +169,4 @@ The Dockerfile is adapted from the one available in the repository
 [Dig]: https://en.wikipedia.org/wiki/Dig_(command)
 [semantic versioning]: https://semver.org/
 [tschaffter/dnsmasq-stubby]: https://github.com/tschaffter/dnsmasq-stubby
+[tschaffter/getdns-stubby]: https://hub.docker.com/r/tschaffter/getdns-stubby
