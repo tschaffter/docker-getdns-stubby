@@ -6,12 +6,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: stubby
+    volumes:
+      - ./stubby.yml:/usr/local/etc/stubby/stubby.yml:ro
     networks:
      - dns
     ports:
      - "53:53/udp"
-    volumes:
-      - ./stubby.yml:/usr/local/etc/stubby/stubby.yml:ro
+    deploy:
+      resources:
+        limits:
+          memory: 100M
 
 networks:
   dns:
