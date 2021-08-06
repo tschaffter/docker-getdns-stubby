@@ -172,7 +172,7 @@ The Dockerfile is adapted from the one available in the repository
 [Stubby]: https://github.com/getdnsapi/stubby
 [getdnsapi/stubby]: https://github.com/getdnsapi/stubby
 [yegle/stubby-docker]: https://github.com/yegle/stubby-docker
-[Apache License 2.0]: https://github.com/tschaffter/getdns-stubby/blob/main/LICENSE
+[Apache License 2.0]: https://github.com/tschaffter/docker-getdns-stubby/blob/main/LICENSE
 [getdnsapi/getdns]: https://github.com/getdnsapi/getdns
 [DNS Privacy servers]: https://dnsprivacy.org/wiki/x/E4AT
 [NextDNS]: https://nextdns.io/
