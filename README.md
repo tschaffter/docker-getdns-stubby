@@ -48,8 +48,8 @@ Stubby provides DNS Privacy by:
 
 ## Specification
 
-- Project version: 1.1.4
-- Getdns version: 1.6.0
+- Project version: 1.2.0
+- Getdns version: 1.7.0
 - Docker image: [tschaffter/getdns-stubby]
 
 
