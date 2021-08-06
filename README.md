@@ -143,14 +143,13 @@ GitHub tags of this repository.
 
 The table below describes the image tags available.
 
-| Tag name   | Moving   | Description  |
-|---|---|---|
-| `latest`  | Yes   | Latest stable release   |
-| `edge`  | Yes   | Lastest commit made to the default branch  |
-| `<major>` | Yes   | Latest stable release for the getdns major version `<major>` |
-| `<major>.<minor>` | Yes | Latest stable release for the getdns version `<major>.<minor>` |
-| `<major>.<minor>.<patch>` | Yes | Latest stable release for the getdns version `<major>.<minor>.<patch>` |
-| `<major>.<minor>.<patch>-<sha>` | No | Same as above but with the reference to the git commit |
+| Tag name                        | Moving | Description
+|---------------------------------|--------|------------
+| `latest`                        | Yes    | Latest stable release.
+| `edge`                          | Yes    | Latest commit made to the default branch.
+| `edge-<sha>`                    | No     | Same as above with the reference to the git commit.
+| `<major>.<minor>.<patch>`       | Yes    | Stable release.
+| `<major>.<minor>.<patch>-<sha>` | No     | Same as above with the reference to the git commit.
 
 > Note: You should avoid using a moving tag like `latest` when deploying
 containers in production, because this makes it hard to track which version of
