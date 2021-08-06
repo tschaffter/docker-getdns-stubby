@@ -1,13 +1,11 @@
-# Stubby
+# Stubby Docker image
 
-[![GitHub Release](https://img.shields.io/github/release/tschaffter/getdns-stubby.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/getdns-stubby/releases)
-[![GitHub CI](https://img.shields.io/github/workflow/status/tschaffter/getdns-stubby/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/getdns-stubby/actions)
-[![GitHub License](https://img.shields.io/github/license/tschaffter/getdns-stubby.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/getdns-stubby/blob/develop/LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/tschaffter/docker-getdns-stubby.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/docker-getdns-stubby/releases)
+[![GitHub CI](https://img.shields.io/github/workflow/status/tschaffter/docker-getdns-stubby/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/docker-getdns-stubby/actions)
+[![GitHub License](https://img.shields.io/github/license/tschaffter/docker-getdns-stubby.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/docker-getdns-stubby/blob/develop/LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/tschaffter/getdns-stubby.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/tschaffter/getdns-stubby)
 
-Docker image for Stubby
-
-## Overview
+## Introduction
 
 [Stubby] is an application that acts as a local DNS Privacy stub resolver (using
 DNS-over-TLS). Stubby encrypts DNS queries sent from a client machine (desktop
@@ -16,6 +14,8 @@ or laptop) to a DNS Privacy resolver increasing end user privacy.
 Stubby is developed by the getdns team. This project builds Stubby from its
 source using the instruction available in the GitHub repository
 [getdnsapi/stubby].
+
+
 
 ## Features
 
