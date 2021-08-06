@@ -1,9 +1,10 @@
-# Stubby Docker image
+# Docker image for Stubby
 
 [![GitHub Release](https://img.shields.io/github/release/tschaffter/docker-getdns-stubby.svg?include_prereleases&color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/docker-getdns-stubby/releases)
 [![GitHub CI](https://img.shields.io/github/workflow/status/tschaffter/docker-getdns-stubby/CI.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/docker-getdns-stubby/actions)
 [![GitHub License](https://img.shields.io/github/license/tschaffter/docker-getdns-stubby.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/tschaffter/docker-getdns-stubby/blob/develop/LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/tschaffter/getdns-stubby.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/tschaffter/getdns-stubby)
+
 
 ## Introduction
 
@@ -32,7 +33,18 @@ Stubby provides DNS Privacy by:
 
 ## Contents
 
-TBA
+- [Specification](#Specification)
+- [Requirements](#Requirements)
+- [Usage](#Usage)
+  - [Quickstart](#Quickstart)
+  - [Configuration](#Configuration)
+  - [Deploying using Docker](#Deploying-using-Docker)
+- [Resolving domain names](#Resolving-domain-names)
+- [Versioning](#Versioning)
+  - [GitHub tags](#GitHub-tags)
+  - [Docker tags](#Docker-tags)
+- [Acknowledgments](#Acknowledgments)
+- [License](#License)
 
 
 ## Specification
