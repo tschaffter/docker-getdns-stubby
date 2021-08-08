@@ -76,7 +76,7 @@ RUN chmod +x docker-entrypoint.sh
 EXPOSE 53/tcp
 EXPOSE 53/udp
 
-# HEALTHCHECK CMD ["/bin/getdns_server_mon", "-M", "-t", "@127.0.0.1", "lookup", "google.com"]
+# HEALTHCHECK CMD ["/bin/getdns_server_mon", "-M", "-t", "@1.7.0.0.1", "lookup", "google.com"]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["stubby"]
