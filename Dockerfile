@@ -1,4 +1,4 @@
-FROM debian:10.10-slim as stubby
+FROM debian:11.0-slim as stubby
 
 ARG GETDNS_VERSION="1.7.0"
 ENV GETDNS_VERSION=${GETDNS_VERSION}
@@ -44,7 +44,7 @@ RUN gpg --import willem.nlnetlabs.nl \
     && strip -s /usr/local/bin/stubby \
     && strip -s /usr/local/lib/libgetdns.so.10
 
-FROM debian:10.10-slim
+FROM debian:11.0-slim
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
