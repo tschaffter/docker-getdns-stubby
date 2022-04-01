@@ -9,7 +9,7 @@ jobs:
     name: Check and update getdns release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Get latest getdns release version
         run: |
           git clone --recurse-submodules https://github.com/getdnsapi/getdns.git
